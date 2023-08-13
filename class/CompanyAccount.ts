@@ -6,12 +6,13 @@ export class CompanyAccount extends bankAccount{
         super(name,accountNumber)
     }
 
-    getloan = ():void => {
-        console.log(`Emprestimo feito!`)
-    }
-
-    deposit = ():number => {
-        console.log(`A empresa depositou`)
-        return 2
+    getloan = (emprestimo:number):number => {
+        if (this.validateStatus()){
+            console.log(`Emprestimo feito!`)
+            super.getBalance()
+            return emprestimo
+        }
+        emprestimo = 0
+        return emprestimo
     }
 }
