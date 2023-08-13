@@ -1,0 +1,48 @@
+export abstract class bankAccount {
+    private name: string 
+    readonly accountNumber: number
+    balance: number = 0
+    private status: boolean = true
+
+    constructor(name:string, accountNmber:number){
+        this.name = name
+        this.accountNumber = accountNmber
+    }
+
+    /*/
+    setaccountNumber = () {
+        this.accountNumber = 23
+    }
+    /*/
+    setname = (name:string):void => {
+        this.name = name
+        console.log('New Name saved')
+    }
+    getName = ():string => {
+        return this.name
+    }
+
+    deposit = (amount:number):void => {
+        if(this.validateStatus()){
+            console.log(`Deposited ${amount}`)
+            this.balance = this.balance + amount
+        }
+        
+    }
+
+    withdrawl = (valor:number):void => {
+        console.log(`Withdrawal ${valor}`)
+    }
+
+    getBalance = ():void => {
+        console.log(this.balance)
+    }
+    validateStatus = ():boolean => {
+        if (this.status){
+            return this.status
+        }
+
+        throw new Error('Conta invalida')
+    }
+}
+
